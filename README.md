@@ -31,12 +31,14 @@ the module is completely useless as it contains now methods or other member vari
 
 #### Greet
 
+```
 $ cd greet
 $ python setup.py install
 $ python3
 >>> import greet
 >>> greet.greet()
 >>> exit()
+```
 
 greet adds greet() function at the module level. The function takes not args as in
 METH_NOARGS. The only self argument points to the module in this case. The return
@@ -45,6 +47,7 @@ value is the interesting part here. Py_BuildValue() builds a string "s" from C s
 
 #### Salute
 
+```
 $ cd salute
 $ python setup.py install
 $ python3
@@ -52,6 +55,7 @@ $ python3
 >>> salute.salute("Mohamed")
 >>> salute.salute("Mohamed", "Khalfella")
 >>> exit()
+```
 
 salute adds the ability to pass arguments from python to C. PyArg_ParseTuple() helps
 in parsing function arguments and converts them to corresponding C types. Coupled
@@ -60,6 +64,7 @@ value. It also gives example of the use of optional arguments.
 
 #### Area
 
+```
 $ cd area
 $ python setup.py install
 $ python3
@@ -69,11 +74,13 @@ $ python3
 >>> area.get_area(width=4, height=3)
 >>> area.get_area(0, units="km")
 >>> exit()
+```
 
 area modules demonstrates the use of keyword arguments and setting default values. get_area() throws an exception if area is 0, serving as example how of throwing exceptions from C code.
 
 #### PrimeStream
 
+```
 $ cd pstream
 $ python setup.py install
 $ python3
@@ -96,12 +103,14 @@ $ python3
 >>> ps.get(), ps.get(), ps.get()
 (800000041, 800000063, 800000083)
 >>>
+```
 
 pstream is a module that shows how to create a new type in a C extension. `PrimeStream` is a class whose object return sequence of prime numbers. The constructor takes optional starting prime number.
 
 
 ### Mandelbrot
 
+```
 $ cd mbrot1
 $ python setup.py install
 $ python3
@@ -116,12 +125,14 @@ $ python3
 >>> b = mb.get_buffer()
 >>> img = Image.frombuffer('L', (10000,10000), b, "raw")
 >>> img.save("mandelbrot.bmp", "BMP")
+```
 
 Draw greyscale image of Mandelbrot set. MandlebrotSet constructor takes width and height of the image followed by x0, y0, x1, y1 for coordinates of rectangle to draw.
 
 
 ### Mandelbrot2
 
+```
 $ cd mbrot2
 $ python setup.py install
 $ python3
@@ -136,10 +147,10 @@ $ python3
 >>> b = mb.get_buffer()
 >>> img = Image.frombuffer('L', (10000,10000), b, "raw")
 >>> img.save("mandelbrot.bmp", "BMP")
-
+```
 
 Similar to mbrot1 modules, but it adds the option to use multiple threads to build the image buffer.
 
 
-https://docs.python.org/3/c-api/index.html
+See https://docs.python.org/3/c-api/index.html
 
